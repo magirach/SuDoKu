@@ -14,11 +14,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let b = a.createPuzzle(difficulty: 5)
-        print(b)
-        print(a.getHint())
-        //Sudoku().generateSudoku(difficulty: 2)
-//        SudokuGame().generateSudoku()
-        // Do any additional setup after loading the view.
         var x = 10
         var y = 100
         for i in 0..<9 {

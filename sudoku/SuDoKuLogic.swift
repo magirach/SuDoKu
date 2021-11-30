@@ -9,7 +9,12 @@ import Foundation
 
 
 class Sudoku {
+    
+    /// reate puzzle
+    /// - Parameter difficulty: 1 - 5
+    /// - Returns: give sudoku elements array
     func createPuzzle(difficulty: Int) -> [[Int]] {
+        reset()
         self.difficulty = difficulty
         generateGame(grid: &gridPuzzle)
         gridSolution = gridPuzzle
@@ -18,6 +23,11 @@ class Sudoku {
         return gridPuzzle
     }
     
+    /// remove number from the board
+    /// - Parameters:
+    ///   - row: grid row 0 - 8
+    ///   - col: grid col 0 - 8
+    /// - Returns: true if success else false
     func eraseNumber(row: Int, col: Int) -> Bool {
         if gridPuzzle[row][col] != 0 {
             return false
@@ -26,6 +36,13 @@ class Sudoku {
             return true
         }
     }
+    
+    /// insert number to board
+    /// - Parameters:
+    ///   - number: number to be inserted
+    ///   - row: grid row 0 - 8
+    ///   - col: grid col 0 - 8
+    /// - Returns: true if success else false
     func addNumber(number: Int, row: Int, col: Int) -> Bool {
         if gridProgress[row][col] != 0 {
             return false
@@ -39,6 +56,8 @@ class Sudoku {
         }
     }
     
+    /// give randoom hint object
+    /// - Returns: gives value, row and col for which hint given
     func getHint() -> (value: Int, row: Int, col: Int)? {
         if isFull(grid: gridProgress) {
             return nil
@@ -52,6 +71,8 @@ class Sudoku {
         return (gridSolution[row][col], row, col)
     }
     
+    /// check either all values are filled in game
+    /// - Returns: true if game completed else false
     func isGameCompleted() -> Bool {
         return isFull(grid: gridProgress)
     }
