@@ -85,9 +85,9 @@ class Sudoku {
     private var difficulty = 5
 
     private func reset() {
-        gridPuzzle.removeAll()
-        gridProgress.removeAll()
-        gridSolution.removeAll()
+        gridPuzzle = [[Int]].init(repeating: [Int].init(repeating: 0, count: 9), count: 9)
+        gridProgress = [[Int]].init(repeating: [Int].init(repeating: 0, count: 9), count: 9)
+        gridSolution = [[Int]].init(repeating: [Int].init(repeating: 0, count: 9), count: 9)
     }
     
     private func isValid(grid: [[Int]]) -> Bool {
